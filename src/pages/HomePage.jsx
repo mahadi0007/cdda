@@ -16,7 +16,7 @@ function HomePage() {
         <div className="col-md-8 col-12">
           <Card setCenter={setCenter} />
         </div>
-        <div className="col-md-4 col-12">
+        <div className="col-md-4 col-12 px-5">
           <Gmap center={center} />
         </div>
       </div>
