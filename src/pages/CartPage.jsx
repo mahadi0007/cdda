@@ -32,7 +32,7 @@ function CartPage() {
           {productList.length > 0 &&
             productList.map((item, index) => {
               return (
-                <div className="col-6 pt-4 offset-3">
+                <div className="col-md-6 col-12 pt-4 offset-md-3">
                   <div className="card w-100 h-100 border-rounded-5">
                     <div className="row">
                       <div className="col-4">
