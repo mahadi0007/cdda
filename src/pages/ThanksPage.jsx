@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../components/Navbar";
 import {
   selectProduct,
   deleteProduct,
@@ -17,11 +16,9 @@ function ThanksPage() {
       productList.map((item, index) => {
         totalPrice = parseFloat(totalPrice + item.asking_price);
       });
-    console.log(totalPrice);
   }
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="container min-vh-100 d-flex justify-content-center align-items-center">
         <div className="text-center">
           <h3>Thank you for your purchase.</h3>

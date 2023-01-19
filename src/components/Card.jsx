@@ -16,34 +16,19 @@ function Card(props) {
   const dispatch = useDispatch();
   const cartBadgeQuan = useSelector(selectCartBagdeUpdate);
   const [productList, setProductList] = useState(useSelector(selectProduct));
-  // const product = useSelector(selectProduct);
-  console.log("productList");
-  console.log(productList);
 
   const [allProperty, setAllProperty] = useState([]);
   useEffect(() => {
-    console.log("property api", process.env.REACT_APP_PROPERTY_API);
-    console.log(process.env.REACT_APP_GOOGLE_MAP_API_KEY);
-
     axios.get(process.env.REACT_APP_PROPERTY_API).then((res) => {
-      console.log("res.data");
-      console.log(res.data);
       setAllProperty(res.data);
-      console.log(allProperty);
     });
   }, []);
 
   const handleCartProduct = (item) => {
-    // dispatch(setProduct(item));
-    console.log("productList");
-    console.log(productList);
-    console.log(productList.includes(item));
     if (!productList.includes(item)) {
       dispatch(setProduct(item));
       setProductList((oldArray) => [...oldArray, item]);
       dispatch(setCartQuanUpdate(!cartBadgeQuan));
-
-      // props.setUpdate(!props.update);
     }
   };
   return (
@@ -58,7 +43,6 @@ function Card(props) {
                 <div className="col-12 col-md-4 pt-2 mb-5 d-flex flex-column align-items-stretch">
                   <div className="card w-100 h-100 border-0">
                     <div className="position-relative">
-                      {/* <div style={{ height: "250px", objectFit: "contain" }}> */}
                       <img
                         src={item.image}
                         className="card-img-top img-fluid w-100"
@@ -70,23 +54,17 @@ function Card(props) {
                           cursor: "pointer",
                         }}
                         onClick={() => {
-                          console.log("item");
-                          console.log(item.coordinates);
                           props.setCenter({
                             lat: parseFloat(item.coordinates.lat),
                             lng: parseFloat(item.coordinates.lng),
                           });
                         }}
                       />
-                      {/* </div> */}
-
                       <span
                         className="position-absolute top-0 mt-3 me-3 text-white p-2 rounded-end"
                         style={{
                           left: "-12px",
                           backgroundColor: "#4FDC90",
-                          // borderTopRightRadius: "8%",
-                          // borderBottomRightRadius: "8%",
                         }}
                       >
                         {item.house_type}

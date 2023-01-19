@@ -7,16 +7,8 @@ export const cartProductSlice = createSlice({
     cartBagdeUpdate: false,
   },
   reducers: {
-    //     setProduct: (state, action) => {
-    //       state.product = action.payload;
-    //     },
-    //   },
     setProduct(state, action) {
       state.product.push(action.payload);
-
-      //   if (!state.product.includes(action.payload)) {
-      //     state.product.push(action.payload);
-      //   }
     },
     deleteProduct(state, action) {
       state.product = action.payload;

@@ -13,9 +13,6 @@ function Navbar(props) {
 
   const [productList, setProductList] = useState(useSelector(selectProduct));
 
-  // useEffect(() => {
-  // });
-
   useEffect(() => {
     setProductList(productData);
   }, [cartBadgeQuan]);

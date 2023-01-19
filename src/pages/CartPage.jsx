@@ -14,10 +14,7 @@ import { NavLink } from "react-router-dom";
 function CartPage() {
   const dispatch = useDispatch();
   const [productList, setProductList] = useState(useSelector(selectProduct));
-  console.log("productList");
-  console.log(productList);
-  // const totalPrice = productList.sum("asking_price");
-  // console.log(totalPrice);
+
   let totalPrice = 0;
 
   {
@@ -25,7 +22,6 @@ function CartPage() {
       productList.map((item, index) => {
         totalPrice = parseFloat(totalPrice + item.asking_price);
       });
-    console.log(totalPrice);
   }
 
   return (
@@ -67,11 +63,9 @@ function CartPage() {
                           <RiDeleteBinLine
                             style={{ color: "red", cursor: "pointer" }}
                             onClick={() => {
-                              console.log("delete");
                               const temp = [...productList];
                               temp.splice(productList.indexOf(item), 1);
-                              console.log(productList.indexOf(item));
-                              console.log(temp);
+
                               setProductList(temp);
                               dispatch(deleteProduct(temp));
                             }}
@@ -88,9 +82,8 @@ function CartPage() {
               );
             })}
           <div className="fixed-bottom bg-white">
-            {/* <div> */}
             <hr className="mt-3 mb-1" />
-            <div className="d-flex justify-content-between p-0 mb-2 fw-bold">
+            <div className="d-flex justify-content-between p-0 my-2 fw-bold">
               <p>Total ${totalPrice}</p>
               <NavLink to="/thanks">
                 <button

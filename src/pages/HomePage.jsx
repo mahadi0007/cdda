@@ -9,14 +9,12 @@ function HomePage() {
     lng: 90.4067,
   });
 
-  const [update, setUpdate] = useState(false);
-
   return (
     <div>
-      <Navbar update={update} />
+      <Navbar />
       <div className="row col-12">
         <div className="col-md-8 col-12">
-          <Card setCenter={setCenter} update={update} setUpdate={setUpdate} />
+          <Card setCenter={setCenter} />
         </div>
         <div className="col-md-4 col-12">
           <Gmap center={center} />
